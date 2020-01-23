@@ -1,7 +1,7 @@
 # homeassistant-bosch_washer
 
 !!! Adoption for Home Connect Washer !!! (works with SIEMENS & BOSCH devices)
-All credits to the original author of the code!
+All credits to the original author "gkreitz" of the code!
 
 This is a quick n' dirty component for Home Assistant to read the state of a Bosch Washer using Home Connect.
 
