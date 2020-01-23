@@ -16,7 +16,7 @@ from homeassistant.helpers import aiohttp_client
 _LOGGER = logging.getLogger(__name__)
 REQUIREMENTS = ['aiohttp-sse-client==0.1.6', 'aiohttp==3.5.4']
 
-DOMAIN = 'bosch_dryer'
+DOMAIN = 'bosch_washer'
 
 CONF_REFRESH_TOKEN = 'refresh_token'
 CONF_TOKEN = 'bearer_token'
@@ -40,7 +40,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
     import aiohttp
     import multidict
 
-    _LOGGER.debug("Starting Bosch Dryer sensor")
+    _LOGGER.debug("Starting Bosch Washer sensor")
 
     session = aiohttp_client.async_get_clientsession(hass)
     auth_session = OauthSession(session, config.get(CONF_REFRESH_TOKEN))
@@ -51,11 +51,11 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
 
     for a in appliances:
         _LOGGER.debug('Found device %s', a)
-        if a['type'] != 'Dryer':
+        if a['type'] != 'Washer':
             continue
 
         haId = a['haId']
-        _LOGGER.info('Found dryer %s', haId)
+        _LOGGER.info('Found Washer %s', haId)
         reader = BoschDryerDataReader(auth_session, a['haId'], hass)
         hass.loop.create_task(reader.process_updates())
 
@@ -147,7 +147,7 @@ class BoschDryerDataReader:
         elif key == 'BSH.Common.Status.OperationState':
             self._state['state'] = value.replace('BSH.Common.EnumType.OperationState.', '').lower()
         elif key == 'BSH.Common.Root.SelectedProgram':
-            self._state['program'] = value.replace('LaundryCare.Dryer.Program.', '').lower()
+            self._state['program'] = value.replace('LaundryCare.Washer.Program.', '').lower()
         elif key == 'BSH.Common.Option.RemainingProgramTime':
             self._state['remaining'] = int(value)
         else:
