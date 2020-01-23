@@ -1,23 +1,26 @@
-# homeassistant-bosch_dryer
+# homeassistant-bosch_washer
 
-This is a quick n' dirty component for Home Assistant to read the state of a Bosch Dryer using Home Connect. It likely works with other Home Connect dryers too.
+!!! Adoption for Home Connect Washer !!! (works with SIEMENS & BOSCH devices)
+All credits to the original author of the code!
 
-This will give you four sensors for each Home Connect dryer you have:
+This is a quick n' dirty component for Home Assistant to read the state of a Bosch Washer using Home Connect.
+
+This will give you four sensors for each Home Connect washer you have:
 - **door**: `open`, `close`, `locked`, or `unknown`. https://developer.home-connect.com/docs/status/door_state
 - **program**: `cotton`, `synthetic`, ..., `unknown`. https://developer-staging.home-connect.com/docs/dryer/supported_programs_and_options
 - **remaining**: time remaining in seconds, or unknown.
 - **state**: `inactive`, `ready`, `run`, `finished`, ..., or `unavailable`. https://developer.home-connect.com/docs/status/operation_state
 
-If the dryer is off/not connected to wifi, you'll get a **state** of `unavailable`` and the rest as ``unknown``.
+If the washer is off/not connected to wifi, you'll get a **state** of `unavailable`` and the rest as ``unknown``.
 
 ## Automation ideas
-My plan for this is to add a task to empty the dryer in Todoist when the dryer is finished. When the door opens, that task is automatically completed.
+My plan for this is to add a task to empty the washer in Todoist when the dryer is finished. When the door opens, that task is automatically completed.
 
-In addition, when the dryer is running, Magic Mirror displays the time remaining.
+In addition, when the washer is running, Magic Mirror displays the time remaining.
 
 ## Installation
-- Ensure your dryer is set up and working in the Home Connect app.
-- Copy this folder to `<config_dir>/custom_components/bosch_dryer/`.
+- Ensure your washer is set up and working in the Home Connect app.
+- Copy this folder to `<config_dir>/custom_components/bosch_washer/`.
 - Create an account on https://developer.home-connect.com/.
 - Register an application. Pick `Device flow` for OAuth flow.
 - Once you start this sequence, you have 5 minutes to complete it (or you'll have to restart from here):
@@ -31,7 +34,7 @@ In addition, when the dryer is running, Magic Mirror displays the time remaining
 Put the following in your home assistant config:
 ```
 sensor:
-  - platform: bosch_dryer
+  - platform: bosch_washer
     refresh_token: "YOUR_REFRESH_TOKEN"
 ```
 
