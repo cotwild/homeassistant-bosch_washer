@@ -1,6 +1,6 @@
 {
-	"domain": "bosch_dryer",
-	"name": "Bosch Dryer",
+	"domain": "bosch_washer",
+	"name": "Bosch Washer",
 	"documentation": "https://github.com/gkreitz/homeassistant-bosch_dryer",
 	"dependencies": [],
 	"requirements": ["aiohttp-sse-client==0.1.6", "aiohttp==3.5.4"],
