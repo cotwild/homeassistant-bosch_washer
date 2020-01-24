@@ -1,7 +1,7 @@
 {
 	"domain": "bosch_washer",
 	"name": "Bosch Washer",
-	"documentation": "https://github.com/cotwild/homeassistant-bosch_washer",
+	"documentation": "https://github.com/cotwild/homeassistant-bosch-washer",
 	"dependencies": [],
 	"requirements": ["aiohttp-sse-client==0.1.6", "aiohttp==3.5.4"],
 	"codeowners": ["@gkreitz", "@cotwild"]
