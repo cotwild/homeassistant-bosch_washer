@@ -13,11 +13,6 @@ This will give you four sensors for each Home Connect washer you have:
 
 If the washer is off/not connected to wifi, you'll get a **state** of `unavailable`` and the rest as ``unknown``.
 
-## Automation ideas
-My plan for this is to add a task to empty the washer in Todoist when the dryer is finished. When the door opens, that task is automatically completed.
-
-In addition, when the washer is running, Magic Mirror displays the time remaining.
-
 ## Installation
 - Ensure your washer is set up and working in the Home Connect app.
 - Copy this folder to `<config_dir>/custom_components/bosch_washer/`.
