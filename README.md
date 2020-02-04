@@ -1,5 +1,11 @@
 # homeassistant-bosch_washer
 
+IMPORTANT! Creating a module for each device causes too many requests on the HOME CONNECT server and returns error 409. I therefore created a combined sensor, actually working with Oven (Steamer & normal oven), Dishwasher, Washer and Dryer.
+https://github.com/cotwild/home_connect
+
+
+
+
 !!! Adoption for Home Connect Washer !!! (works with SIEMENS & BOSCH devices)
 All credits to the original author "gkreitz" of the code!
 
